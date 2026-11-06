@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0c0b09;
+  --ink-soft: #161411;
+  --paper: #f3ece3;
+  --paper-muted: #e7ddd0;
+  --lime: #d4ff3f;
+  --lime-deep: #c2f000;
+  --muted: #9a9186;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-paper-muted: var(--paper-muted);
+  --color-lime: var(--lime);
+  --color-lime-deep: var(--lime-deep);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none !important;
+  }
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+.font-display {
+  font-family: var(--font-display), Impact, sans-serif;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
